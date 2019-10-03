@@ -1,47 +1,56 @@
-//Imports
+//Imports.
 import React, { Component } from 'react'
 import './App.css';
 
-//Component imports
+
+//Component imports.
 import Select from "./components/select.js";
 import Search from "./components/search.js";
+import Show 	from "./components/show.js";
 
+//This class is the main component.
+//Here is logic for switching between components defined.
 class App extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
 			page: "select",
-			searchBy: ""
+			searchBy: "",
+			searchTerm: ""
 		};
 	}
 
 
 	//////////////////////////////////////////////
-	//Event functions
+	//Event functions.
 	//////////////////////////////////////////////
-
-	//Update searchBy state, country or city
-	//change page state to search
+ 	
+ 	//This function is called when a "select country or city" button is pressed.
 	buttonHandler = (type) => {
+		//Set searchBy to what user wants to search for and display search component.
 		this.setState({searchBy: type, page: "search"});
 	}
 
-	//Update searchTerm state to users input
-	//change page state to show
+	//This function is called when the search icon is clicked.
 	submitHandler = (searchTerm) => {
+		//Set searchBy to users input and display show component. 
 		this.setState({searchTerm: searchTerm, page: "show"});
 	}
 
-
 	
-
-
 	render() {
+		//Defining constants.
+		const page 				= this.state.page;
+		const searchBy 		= this.state.searchBy;
+		const searchTerm 	= this.state.searchTerm;
+
+		//Return different components depending on the constants above. 
 		return (
 			<div>
 				<h1>CityPop</h1>  
-				{this.state.page === "select" && <Select buttonHandler = {this.buttonHandler}/>}
-				{this.state.page === "search" && <Search submitHandler = {this.submitHandler} searchBy = {this.state.searchBy}/>}
+				{page === "select" && <Select buttonHandler = {this.buttonHandler}/>}
+				{page === "search" && <Search submitHandler = {this.submitHandler} searchBy = {searchBy}/>}
+				{page === "show" 	&& 	<Show searchTerm = {searchTerm} searchBy = {searchBy}/>}
 			</div>
 		)
 	}
