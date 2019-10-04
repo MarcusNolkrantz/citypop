@@ -1,5 +1,5 @@
 //Imports
-import React, { Component } from 'react'
+import React from 'react'
 
 //This function returns a city component from given name and population.
 function City(props){
@@ -8,9 +8,8 @@ function City(props){
 		
 		<h2>{props.name}</h2>
 			
-			<div>
-				<p>Population</p>
-				<p>{props.population}</p>
+			<div className="cityInfo">
+				<p>Population <span className="numbers">{props.population}</span></p>
 			</div>
 
 		</div>

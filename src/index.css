@@ -5,9 +5,107 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  padding-top: 30px;
+
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+h1{
+	font-size: 3em;
+}
+
+h2{
+	font-weight: bold;
+	margin-bottom: 30px;
+	text-transform: uppercase;
+}
+
+h4{
+	font-weight: normal;
+	text-transform: uppercase;
+}
+
+button{
+	outline: none !important;
+	background: white;
+	border: 2px solid black;
+	text-align: center;
+}
+
+
+.selectButtons{
+	width: 50%;
+	margin: 70px auto;
+}
+
+.selectButtons button{
+	display: inline-block;
+	width: 47%;
+	min-width: 180px;
+	margin: 1% 1%;
+	padding: 45px 0;
+	text-transform: uppercase;
+	font-weight: bold;
+}
+
+
+.searchForm{
+	width: 30%;
+	margin: 50px auto;
+	text-align: center;
+}
+
+.searchForm input[type="text"]{
+	display: block;
+	width: 100%;
+	margin-top: 20px;
+	padding: 10px 0;
+	background: none;
+	border: 2px solid black;
+	text-align: center;
+}
+
+.searchForm button{
+	font-size: 1.5em;
+	background: none;
+	border: 1px solid lightgrey;
+	border-radius: 50%;
+	margin-top: 15px;
+}
+
+.cityList{
+	width: 40%;
+	margin: 50px auto;
+	text-align: center;
+}
+
+
+.cityList button{
+	display: block;
+	width: 100%;
+	padding: 20px 0;
+	background: none;
+	border: 2px solid black;
+	text-align: center;
+}
+
+
+.cityInfo{
+	border: 2px solid black;
+	text-transform: uppercase;
+}
+
+.cityInfo .numbers{
+	font-size: 3em;
+	display: block;
+}
+
+.hover{
+	background-color: lightgrey;
+}
+

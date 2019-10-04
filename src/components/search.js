@@ -1,5 +1,6 @@
 //Imports
 import React, { Component } from 'react';
+import { IoIosSearch } from "react-icons/io";
 
 //This class displays a search bar where the user 
 //can search for a city or a country.
@@ -30,10 +31,10 @@ class Select extends Component{
 
 		//Return different components depending on the constants above. 
 		return(
-			<form onSubmit={(SearchTerm) => submitHandler(searchTerm)}>
-	 	  	<h3>Search By {searchBy}</h3>
+			<form className="searchForm" onSubmit={(e) => submitHandler(e, searchTerm)}>
+	 	  	<h4>Search By {searchBy}</h4>
 	       	<input type="text" placeholder={"Enter a " + searchBy} onChange = {this.handleChange}/>
-	   			<input type="submit" value="Submit" />
+	   			<button type="submit"><IoIosSearch/></button>
 	    </form>
 		)
 	}

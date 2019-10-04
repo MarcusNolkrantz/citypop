@@ -1,6 +1,8 @@
 //Imports.
 import React, { Component } from 'react';
 import lookup from 'country-code-info';
+import NumberFormat from 'react-number-format';
+import Loader from 'react-loader-spinner'
 
 //Component imports.
 import City from "./city.js";
@@ -54,7 +56,7 @@ class Show extends Component{
 	countryApiCall = (countryCode) =>{
 		const country = this.props.searchTerm;
 		const url = "http://api.geonames.org/search?type=json&q=" + country + 
-								"&country=" + countryCode + "&orderby=population&featureClass=P&maxRows=5&username=weknowit";
+								"&country=" + countryCode + "&orderby=population&featureClass=P&maxRows=3&username=weknowit";
 		
 		//Fetch data from api.	
 		fetch(url)
@@ -105,7 +107,7 @@ class Show extends Component{
 			.then(data => {
 				const foundCity = data.geonames[0];
 				//Check if response is empty.
-				if(!foundCity){
+				if(!foundCity || this.props.searchTerm === ""){
 					//Hide loading icon and set error message.
 					this.setState({error: "The city could not be found", loading: false});
 				}
@@ -142,7 +144,6 @@ class Show extends Component{
 	}
 
 
-
 	//////////////////////////////////////////////
 	//Event functions
 	//////////////////////////////////////////////
@@ -162,15 +163,15 @@ class Show extends Component{
 			const isLoading 			=  this.state.loading;
 			const display					=  this.state.display;
 			const cityName				=  this.state.cityName;
-			const cityPopulation	=  this.state.cityPopulation;
+			const cityPopulation	=  <NumberFormat value={this.state.cityPopulation} 
+																displayType={'text'} thousandSeparator=" " />
 			const error   				=  this.state.error;
-			const searchBy				=  this.props.searchBy;
 			const searchTerm			=  this.props.searchTerm;
 
 		//Return different components depending on the constants above. 
 		return(
-			<div>
-				{isLoading && <p>Loading...</p>}
+			<div className="cityList">
+				{isLoading && <Loader />}
 				{!error && !isLoading && display === "country" && <div> <h2>{searchTerm}</h2> {cities} </div>}
 				{!error && !isLoading && display === "city" && <City name = {cityName} population = {cityPopulation} />}
 				{error && <p>{this.state.error}</p>}

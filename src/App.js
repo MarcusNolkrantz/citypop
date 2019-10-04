@@ -16,7 +16,7 @@ class App extends Component {
 		this.state = {
 			page: "select",
 			searchBy: "",
-			searchTerm: ""
+			searchTerm: ""		
 		};
 	}
 
@@ -32,7 +32,9 @@ class App extends Component {
 	}
 
 	//This function is called when the search icon is clicked.
-	submitHandler = (searchTerm) => {
+	submitHandler = (e, searchTerm) => {
+		//Prevent default behaviour
+		e.preventDefault();
 		//Set searchBy to users input and display show component. 
 		this.setState({searchTerm: searchTerm, page: "show"});
 	}
@@ -48,9 +50,9 @@ class App extends Component {
 		return (
 			<div>
 				<h1>CityPop</h1>  
-				{page === "select" && <Select buttonHandler = {this.buttonHandler}/>}
-				{page === "search" && <Search submitHandler = {this.submitHandler} searchBy = {searchBy}/>}
-				{page === "show" 	&& 	<Show searchTerm = {searchTerm} searchBy = {searchBy}/>}
+				{page === "select" && <Select buttonHandler = {this.buttonHandler} />}
+				{page === "search" && <Search submitHandler = {this.submitHandler} searchBy = {searchBy} />}
+				{page === "show" 	&& 	<Show searchTerm = {searchTerm} searchBy = {searchBy} />}
 			</div>
 		)
 	}
