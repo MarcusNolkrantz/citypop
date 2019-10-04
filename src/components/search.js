@@ -1,6 +1,6 @@
 //Imports
 import React, { Component } from 'react';
-import { IoIosSearch } from "react-icons/io";
+import { IoIosSearch } from "react-icons/io"; 
 
 //This class displays a search bar where the user 
 //can search for a city or a country.

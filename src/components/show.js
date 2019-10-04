@@ -24,14 +24,13 @@ class Show extends Component{
 	};
 
 
-
 	//Function is called before the component renders for the first time.
 	//Seperates country search from city search and calls corresponding api function.
 	componentDidMount(){
 		//Update loading so loading icon appears.
 		this.setState({loading: true});
 		
-		//If user wants to search by country.
+		//If user wants to search for a country.
 		if(this.props.searchBy === "country"){
 			//Lookup country code from searchterm.
 			const countryCode = lookup.findCountry({'name': this.props.searchTerm}, true);
@@ -44,6 +43,7 @@ class Show extends Component{
 				this.countryApiCall(countryCode.a2);
 			}
 		}	
+		//If user wants to search for a city.
 		else{
 			this.cityApiCall();
 		}
