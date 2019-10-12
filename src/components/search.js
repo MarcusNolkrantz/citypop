@@ -57,7 +57,7 @@ class Select extends Component{
 			//Check if character is a letter.
 			if( (code < 65 && code !== 32) || (code > 90 && code < 97) || (code > 123)) {
 				//Set error message
-				this.setState({errorMessage: "Input should not contain numbers or symbols"})
+				this.setState({errorMessage: "Input should only contain letters between a and z."})
 				return false;
 			}
 		}
