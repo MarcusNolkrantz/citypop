@@ -72,10 +72,10 @@ class Select extends Component{
 		//Return different components depending on the constants above. 
 		return(
 			<div>
+				<h4>Search By {searchBy}</h4>
 				<form className="searchForm" onSubmit = {this.handleSubmit}>
-			 	  	<h4>Search By {searchBy}</h4>
 		       	<input type="text" name="search" placeholder={"Enter a " + searchBy} onChange = {this.handleChange}/>
-		       	<p>{errorMessage}</p>
+		       	<p className="error">{errorMessage}</p>
 		   			<button type="submit"><IoIosSearch/></button>
 		    </form>
 		   	 

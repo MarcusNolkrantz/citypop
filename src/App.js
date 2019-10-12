@@ -62,7 +62,7 @@ class App extends Component {
 				{page === "select" && <Select buttonHandler = {this.buttonHandler} />}
 				{page === "search" && <Search submitHandler = {this.submitHandler} searchBy = {searchBy} />}
 				{page === "show"   && <Show searchTerm = {searchTerm} searchBy = {searchBy} />}
-				{page !== "select"  && <button onClick = {this.reset}>New search</button>}
+				{page !== "select"  && <button className="resetButton" onClick = {this.reset}>New search</button>}
 			</div>
 		)
 	}

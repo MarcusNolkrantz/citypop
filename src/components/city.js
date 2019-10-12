@@ -9,7 +9,7 @@ function City(props){
 		<h2>{props.name}</h2>
 			
 			<div className="cityInfo">
-				<p>Population <span className="numbers">{props.population}</span></p>
+				<button>Population <span className="numbers">{props.population}</span></button>
 			</div>
 
 		</div>
